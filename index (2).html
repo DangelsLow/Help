@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mangels Budget Calculator</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #b0d8ff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #b0d8ff;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #6e0f0f;
+      padding: 10px;
+      text-align: left;
+      border-radius: 12px;
+    }
+    th {
+      background-color: #2c2c2c;
+    }
+    td input {
+      width: 100%;
+      background-color: #1e1e1e;
+      color: #b0d8ff;
+      border: none;
+      padding: 5px;
+      border-radius: 8px;
+    }
+    .highlight {
+      background-color: #330000;
+      border: 3px solid #800000;
+      padding: 15px;
+      border-radius: 18px;
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mangels Budget Calculator</h1>
+
+  <h2>Income</h2>
+  <label>VA Disability Income: <input type="number" id="vaIncome" value="4600"></label><br>
+  <label>Bi-weekly Pay 1: <input type="number" id="pay1" value="2200"></label><br>
+  <label>Bi-weekly Pay 2: <input type="number" id="pay2" value="2200"></label><br>
+
+  <h2>Bills & Expenses</h2>
+  <table id="expensesTable">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Payment Method</th>
+        <th>Notes</th>
+        <th>Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Housing</td><td><input value="2100"></td><td>Mortgage Payment</td><td>Bank Transfer</td><td>VA Loan</td><td>2025-06-01</td></tr>
+      <tr><td>Utilities</td><td><input value="350"></td><td>Electricity</td><td>Card</td><td>Summer estimate</td><td>2025-06-02</td></tr>
+      <tr><td>Internet</td><td><input value="100"></td><td>Spectrum Internet</td><td>Card</td><td>400 Mbps</td><td>2025-06-03</td></tr>
+      <tr><td>Groceries</td><td><input value="300"></td><td>H-E-B</td><td>Card</td><td>Bi-weekly</td><td>2025-06-05</td></tr>
+      <tr><td>Groceries</td><td><input value="300"></td><td>H-E-B</td><td>Card</td><td>Bi-weekly</td><td>2025-06-19</td></tr>
+      <tr><td>Medical</td><td><input value="150"></td><td>TRT Subscription</td><td>Card</td><td>Hone Health</td><td>2025-06-06</td></tr>
+      <tr><td>Entertainment</td><td><input value="100"></td><td>Streaming Services</td><td>Card</td><td>Netflix, Prime</td><td>2025-06-07</td></tr>
+      <tr><td>Savings</td><td><input value="500"></td><td>Auto Transfer</td><td>Cash App</td><td>Wife's Fund</td><td>2025-06-08</td></tr>
+      <tr><td>Nissan Payment</td><td><input value="521"></td><td>New Car</td><td>Bank Transfer</td><td>Monthly</td><td>2025-06-01</td></tr>
+      <tr><td>Nissan Warranty</td><td><input value="104"></td><td>Car Warranty</td><td>Bank Transfer</td><td>Monthly</td><td>2025-06-01</td></tr>
+      <tr><td>Food</td><td><input value="150"></td><td>Baby Snacks</td><td>Card</td><td>Child</td><td>2025-06-01</td></tr>
+    </tbody>
+  </table>
+
+  <div id="totalExpenses" class="highlight">Total Expenses: $0</div>
+
+  <h2>Leftover Allocation</h2>
+  <div id="leftoverTotal" style="font-size: 1.5em; margin-bottom: 10px;"></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody id="allocationTable">
+      <tr><td>Savings</td><td id="saveAmt">$0</td><td>50% of leftover</td></tr>
+      <tr><td>Fun / Shopping</td><td id="funAmt">$0</td><td>30% of leftover</td></tr>
+      <tr><td>Insurance Premium</td><td>$166.67</td><td>Monthly reserve for $1,000 every 6 mo</td></tr>
+      <tr><td>Delivery Food</td><td id="foodAmt">$0</td><td>20% of leftover</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Weekly Robinhood Investment Tracker</h2>
+  <table>
+    <thead><tr><th>Asset Type</th><th>Amount</th><th>Ticker</th><th>Strategy</th></tr></thead>
+    <tbody>
+      <tr><td>Crypto</td><td>$30</td><td>ETH/BTC</td><td>Recurring Buy Weekly</td></tr>
+      <tr><td>Growth ETFs</td><td>$40</td><td>ARKK/SOXL</td><td>DCA Weekly</td></tr>
+      <tr><td>Dividends</td><td>$15</td><td>SCHD/VYM</td><td>Long-term Hold</td></tr>
+      <tr><td>Speculative</td><td>$15</td><td>Pick 1–2</td><td>Track & Evaluate</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Weekly Investing Checklist</h2>
+  <ul>
+    <li><input type="checkbox" /> $100 transferred to Robinhood</li>
+    <li><input type="checkbox" /> ETH/BTC recurring buy set</li>
+    <li><input type="checkbox" /> ARKK/SOXL fractional share bought</li>
+    <li><input type="checkbox" /> SCHD/VYM dividend purchase confirmed</li>
+    <li><input type="checkbox" /> Speculative stock picked</li>
+    <li><input type="checkbox" /> Portfolio value logged</li>
+  </ul>
+
+  <script>
+    function calculateTotals() {
+      const pay1 = parseFloat(document.getElementById("pay1").value) || 0;
+      const pay2 = parseFloat(document.getElementById("pay2").value) || 0;
+      const va = parseFloat(document.getElementById("vaIncome").value) || 0;
+      const totalIncome = pay1 + pay2 + va;
+
+      let expenses = 0;
+      document.querySelectorAll("#expensesTable tbody tr").forEach(row => {
+        const val = parseFloat(row.cells[1].querySelector("input").value) || 0;
+        expenses += val;
+      });
+
+      document.getElementById("totalExpenses").innerText = `Total Expenses: $${expenses.toFixed(2)}`;
+      const leftover = totalIncome - expenses - 166.67;
+      document.getElementById("leftoverTotal").innerText = `Leftover: $${leftover.toFixed(2)} (after reserving insurance premium)`;
+
+      document.getElementById("saveAmt").innerText = `$${(leftover * 0.5).toFixed(2)}`;
+      document.getElementById("funAmt").innerText = `$${(leftover * 0.3).toFixed(2)}`;
+      document.getElementById("foodAmt").innerText = `$${(leftover * 0.2).toFixed(2)}`;
+    }
+
+    document.querySelectorAll("input").forEach(i => i.addEventListener("input", calculateTotals));
+    window.onload = calculateTotals;
+  </script>
+</body>
+</html>
